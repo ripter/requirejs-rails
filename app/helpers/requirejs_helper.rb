@@ -115,7 +115,7 @@ module RequirejsHelper
   def paths_from_run_config(run_config)
     return {} unless run_config.has_key? 'paths'
     # Add paths for assets specified by full URL (on a CDN)
-    run_config['paths'].select { |k,v| v =~ /^https?:/ }
+    run_config['paths'].select { |k,v| v =~ /^(https?:|\/\/)/ }
   end
 
   def add_js_suffix(asset)
